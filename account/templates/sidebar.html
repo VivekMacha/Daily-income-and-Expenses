@@ -1,0 +1,17 @@
+
+<h2><a href="/">Home</a></h2>
+
+{%if user.is_authenticated%}
+<h2><a href="{%url 'account:profile' %}">EditProfile</a></h2>
+
+<h2><a href="{%url 'income:add' %}">AddIncome</a></h2>
+<h2><a href="{%url 'expense:add' %}">AddExpense</a></h2>
+<h2><a href="{%url 'income:list' %}">IncomeList</a></h2>
+<h2><a href="">ExpenseList</a></h2>
+<h2><a href="{%url 'account:logout' %}">Logout</a></h2>
+{%else%}
+<h2><a href="{%url 'account:add' %}">Register</a></h2>
+<h2><a href="{%url 'account:login' %}">Login</a></h2>
+{%endif%}
+
+<h2><a href="">About-us</a></h2>

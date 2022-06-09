@@ -1,0 +1,35 @@
+{%load static%}
+
+<link rel="stylesheet" href="{%static 'css/app.css' %}">
+
+<div id="sidebar">
+    {%include 'sidebar.html'%}
+</div>
+
+
+<div id="main">
+    <br>
+    <br>
+    {%block body%}
+
+    {%endblock%}
+</div>
+<style>
+    #ps{
+      
+        color: black;
+        position: fixed;
+        top: 0%;
+        right: 10px;
+        
+    }
+</style>
+<div id="ps">
+
+    {%block data%}
+        {%if user.is_authenticated%}
+            <h4> Welcome: <span>{{user.first_name}} &nbsp;&nbsp;&nbsp;{{user.last_name}}</span></h4>
+        {%endif%}
+    {%endblock%}
+
+</div>

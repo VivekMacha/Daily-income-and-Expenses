@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block body%}
+<h1> Daily Income Expense Managment Application</h1>
+
+{%if user.is_authenticated%}
+
+<h1> Welcome : <span style="color: red;">{{user.first_name}} &nbsp;{{user.last_name}}</span></h1>
+<h1> Total Balance is : <span style="color: red;">{{bal}}</span></h1>
+
+{%endif%}
+
+{%endblock%}

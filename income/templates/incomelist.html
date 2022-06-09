@@ -1,0 +1,71 @@
+{%extends 'base.html'%}
+{%block body%}
+
+<br>
+<form method="post">
+    {%csrf_token%}
+    <textarea name="search"  cols="60" rows="3"></textarea> &nbsp;&nbsp;&nbsp;
+    <input type="submit" value="Search">
+</form>
+<br>
+<table border="1" cellspacing="10">
+    <tr>
+        <th>ID</th>
+        <th>Income</th>
+        <th>IncomeType</th>
+        <th>IncomeDate</th>
+        <th>Description</th>
+        <th colspan="2">Action</th>
+    </tr>
+
+    {%for i in incl%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.income}}</td>
+        <td>{{i.income_type}}</td>
+        <td>{{i.incom_date}}</td>
+        <td>
+            <textarea name="" id="" cols="20" rows="3">{{i.description}}</textarea>
+        </td>
+
+        <td><a href="{%url 'income:delete' i.id %}">Delete</a></td>
+        <td><a href="">Edit</a></td>
+    </tr>
+    {%endfor%}
+
+</table>
+
+<style>
+    #rside{
+        width: 200px;
+        height: 100%;
+        background-color: aqua;
+        position: fixed;
+        right: 0%;
+        top: 0%;
+    }
+
+    #rside   a{
+        color: black;
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    #rside   a:hover{
+        background-color: bisque;
+    }
+</style>
+
+<div id="rside">
+    <br>
+    <h2> By IncomeType</h2>
+    <ul>
+    <li><h3><a href="{%url 'income:list'  %}">All</a></h3></li>
+        {%for i in inctype%}
+        <li><h3><a href="{%url 'income:search_type' i %}">{{i}}</a></h3></li>
+        {%endfor%}
+    </ul>
+    <h2> By Amount Range </h2>
+</div>
+
+{%endblock%}
